@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<title>PitchWearUK | Management</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 24px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+header p {
+  color: #9ca3af;
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+main {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 { font-size: 20px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.card small {
+  color: #6b7280;
+}
+
+.card h2 {
+  font-size: 25px;
+  margin: 10px 0 0;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 24px;
+}
+
+nav button {
+  background: white;
+  border: 1px solid #e5e7eb;
+  padding: 13px 5px;
+  border-radius: 9px;
+  font-weight: bold;
+  color: #374151;
+}
+
+nav button.active {
+  background: #111827;
+  color: white;
+}
+
+.panel {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.section { display: none; }
+.section.active { display: block; }
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+@media (min-width: 650px) {
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  nav { grid-template-columns: repeat(8, 1fr); }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>PITCHWEARUK</h1>
+  <p>Stock. Scan. Sell. Track.</p>
+</header>
+
+<main>
+
+  <h2>Business Dashboard</h2>
+  <p>Welcome to your business management system.</p>
+
+  <div class="stats">
+    <div class="card">
+      <small>Total Stock</small>
+      <h2 id="stock">0</h2>
+    </div>
+
+    <div class="card">
+      <small>Sales Today</small>
+      <h2>£0.00</h2>
+    </div>
+
+    <div class="card">
+      <small>Monthly Revenue</small>
+      <h2>£0.00</h2>
+    </div>
+
+    <div class="card">
+      <small>Monthly Profit</small>
+      <h2>£0.00</h2>
+    </div>
+  </div>
+
+  <nav>
+    <button class="active" onclick="showSection('dashboard',this)">Home</button>
+    <button onclick="showSection('inventory',this)">Stock</button>
+    <button onclick="showSection('scanner',this)">Scanner</button>
+    <button onclick="showSection('till',this)">Till</button>
+    <button onclick="showSection('orders',this)">Orders</button>
+    <button onclick="showSection('packing',this)">Packing</button>
+    <button onclick="showSection('batches',this)">Batches</button>
+    <button onclick="showSection('reports',this)">Reports</button>
+  </nav>
+
+  <div id="dashboard" class="section active panel">
+    <h2>Business Overview</h2>
+    <p>Your PitchWearUK management system starts here.</p>
+    <p>We'll connect your real stock, sales and financial data as we build.</p>
+  </div>
+
+  <div id="inventory" class="section panel">
+    <h2>Stock Management</h2>
+    <p>Your clothing inventory will appear here.</p>
+  </div>
+
+  <div id="scanner" class="section panel">
+    <h2>Barcode Scanner</h2>
+    <p>Camera and physical barcode scanning will be added here.</p>
+  </div>
+
+  <div id="till" class="section panel">
+    <h2>Sales Till</h2>
+    <p>Your sales basket and checkout will be built here.</p>
+  </div>
+
+  <div id="orders" class="section panel">
+    <h2>Orders</h2>
+    <p>Your Vinted and eBay orders will appear here.</p>
+  </div>
+
+  <div id="packing" class="section panel">
+    <h2>Packing Verification</h2>
+    <p>Scan and verify products before dispatch.</p>
+  </div>
+
+  <div id="batches" class="section panel">
+    <h2>Batch Management</h2>
+    <p>BA001, W01, RL1, EST01, FLE1 and future batches.</p>
+  </div>
+
+  <div id="reports" class="section panel">
+    <h2>Business Reports</h2>
+    <p>Revenue, expenses, profit and stock recovery.</p>
+  </div>
+
+</main>
+
+<footer>
+  PITCHWEARUK MANAGEMENT SYSTEM · VERSION 1.0
+</footer>
+
+<script>
+function showSection(id, button) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  button.classList.add('active');
+}
+</script>
+
+</body>
+</html>
